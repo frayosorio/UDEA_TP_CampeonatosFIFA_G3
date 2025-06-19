@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import { Seleccion } from '../../shared/entidades/seleccion';
-import { H } from '@angular/cdk/keycodes';
+
 
 
 @Injectable({
@@ -19,6 +19,10 @@ export class SeleccionService {
 
   public listar(): Observable<Seleccion[]> {
     return this.http.get<Seleccion[]>(`${this.url}listar`);
+  }
+
+  public buscar(texto: string): Observable<Seleccion[]> {
+    return this.http.get<Seleccion[]>(`${this.url}buscar/${texto}`);
   }
 
 }
